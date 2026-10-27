@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/tasks";
+const API_URL = "https://task-api-f8rr.onrender.com/tasks";
 
 // ELEMENTOS DO DOM
 const taskForm = document.querySelector("#taskForm");
