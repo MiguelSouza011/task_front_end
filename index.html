@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | Gerenciamento de Tarefas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="logo">
+            <span class="logo-icon">✓</span>
+            <h2>TaskFlow</h2>
+        </div>
+
+        <nav class="navigation">
+            <a href="#" class="nav-item active">
+                ◫ <span>Dashboard</span>
+            </a>
+            <a href="#tasks" class="nav-item">
+                ☷ <span>Minhas tarefas</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>TaskFlow v1.0</p>
+            <small>Java + Spring Boot</small>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="header">
+            <div>
+                <p class="subtitle">GERENCIAMENTO DE TAREFAS</p>
+                <h1>Meu Dashboard</h1>
+                <p>Organize suas tarefas e acompanhe seu progresso.</p>
+            </div>
+
+            <div class="avatar">DEV</div>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <div class="stat-icon blue">☷</div>
+                <p>Total de tarefas</p>
+                <h2 id="totalTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">◷</div>
+                <p>Pendentes</p>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✓</div>
+                <p>Concluídas</p>
+                <h2 id="completedTasks">0</h2>
+            </div>
+        </section>
+
+        <section class="content-grid">
+
+            <div class="card form-card">
+                <div class="card-heading">
+                    <h2>Nova tarefa</h2>
+                    <p>Adicione uma tarefa à sua lista.</p>
+                </div>
+
+                <form id="taskForm">
+
+                    <div class="form-group">
+                        <label for="title">Título</label>
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Ex: Estudar Spring Boot"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Descrição</label>
+                        <textarea
+                            id="description"
+                            rows="5"
+                            placeholder="Descreva sua tarefa..."
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="submitBtn">
+                        + Adicionar tarefa
+                    </button>
+                </form>
+            </div>
+
+            <div class="card progress-card">
+                <div class="card-heading">
+                    <h2>Seu progresso</h2>
+                    <p>Acompanhe as tarefas concluídas.</p>
+                </div>
+
+                <div class="progress-number" id="progressPercent">0%</div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+
+                <p id="progressText">Nenhuma tarefa cadastrada.</p>
+
+                <div class="progress-decoration">✓</div>
+            </div>
+
+        </section>
+
+        <section class="card tasks-section" id="tasks">
+
+            <div class="tasks-header">
+                <div>
+                    <h2>Minhas tarefas</h2>
+                    <p>Gerencie suas atividades.</p>
+                </div>
+
+                <button id="refreshBtn" class="btn-outline">
+                    ↻ Atualizar
+                </button>
+            </div>
+
+            <div class="toolbar">
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Pesquisar tarefas..."
+                >
+
+                <select id="filterSelect">
+                    <option value="all">Todas</option>
+                    <option value="pending">Pendentes</option>
+                    <option value="completed">Concluídas</option>
+                </select>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+
+            <p id="emptyState" class="empty-state" hidden>
+                Nenhuma tarefa encontrada.
+            </p>
+
+        </section>
+
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    </main>
+</div>
+
+</body>
+</html>
